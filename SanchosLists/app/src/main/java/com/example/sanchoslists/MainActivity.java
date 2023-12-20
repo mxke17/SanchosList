@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        listNames = new ArrayList<>();
+
         Cursor cursor = db.query(ListsContract.DictEntry.TABLE_NAME, null, null, null, null, null, null);
 
         if(cursor.moveToFirst()) {
