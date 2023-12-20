@@ -17,8 +17,9 @@ public class SanchosSQLite extends SQLiteOpenHelper {
     public static final String COLUMN_TASK_ID = "taskId";
     public static final String COLUMN_TASK_NAME = "taskName";
     public static final String COLUMN_LIST_ID = "listId";
+    String SQL_DELETE_ENTRIES =  "DROP TABLE IF EXISTS " + DATABASE_NAME;
 
-    public SanchosSQLite(@Nullable Context context) {
+    public SanchosSQLite(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -27,7 +28,7 @@ public class SanchosSQLite extends SQLiteOpenHelper {
         // Crear tabla de listas
         String createListsTable = "CREATE TABLE " + TABLE_LISTS +
                 "(" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                COLUMN_LIST_NAME + " TEXT)";
+                COLUMN_LIST_NAME + " TEXT UNIQUE)";
         sqLiteDatabase.execSQL(createListsTable);
 
         // Crear tabla de tareas
@@ -41,11 +42,7 @@ public class SanchosSQLite extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        String SQL_DELETE_ENTRIES =  "DROP TABLE IF EXISTS " + DATABASE_NAME;
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
         onCreate(sqLiteDatabase);
     }
-
-    // Separo en mas metodos para crear las tareas de las listas a parte?
-
 }
