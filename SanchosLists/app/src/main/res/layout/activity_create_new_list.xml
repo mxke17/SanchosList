@@ -65,15 +65,6 @@
 
     <!-- Botón de crear -->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="378dp"
-        android:layout_height="48dp"
-        android:text="@string/feedback"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="177dp" />
-
     <Button
         android:id="@+id/createButton"
         android:layout_width="wrap_content"
