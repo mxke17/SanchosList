@@ -12,10 +12,14 @@ import com.example.sanchoslists.tablecontracts.ListsContract;
 
 public class createNewList extends AppCompatActivity {
 
+    EditText textInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_list);
+
+        textInput = (EditText) findViewById(R.id.listNameEditText);
     }
 
     public void backOfCreateNewList(View view){
@@ -26,9 +30,8 @@ public class createNewList extends AppCompatActivity {
         SanchosSQLite dbHelper = new SanchosSQLite(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-
         // Obten el nombre de la lista desde el EditText
-        String listName = ((EditText) findViewById(R.id.listNameEditText)).getText().toString();
+        String listName = textInput.getText().toString();
 
         // Crea un objeto ContentValues para insertar los valores en la base de datos
         ContentValues values = new ContentValues();

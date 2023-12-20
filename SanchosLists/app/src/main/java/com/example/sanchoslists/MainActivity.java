@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private StringListAdapter adapter;
     private SQLiteDatabase db;
     private RecyclerView listLists;
+    private List<String> listNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         listLists.setLayoutManager(layoutManager);
         listLists.setAdapter(adapter);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        
         Cursor cursor = db.query(ListsContract.DictEntry.TABLE_NAME, null, null, null, null, null, null);
 
         if(cursor.moveToFirst()) {
@@ -61,15 +67,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private void initLists(){
-        // Adicion de valores a la bd
-        ContentValues values = new ContentValues();
-        values.put(ListsContract.DictEntry.COLUMN_NAME_NAME, "Compras");
-        db.insert(ListsContract.DictEntry.TABLE_NAME, null, values);
-
-        values.put(ListsContract.DictEntry.COLUMN_NAME_NAME, "Compras2");
-        db.insert(ListsContract.DictEntry.TABLE_NAME, null, values);
-    }
 
     public void createNewList(View view){
         Intent i = new Intent(this, createNewList.class );
