@@ -4,4 +4,6 @@
     <string name="createButton">Crear</string>
     <string name="newList">Nuevo item</string>
     <string name="nameList">Nombre del objeto</string>
+    <string name="correctToast">Agregado con exito</string>
+    <string name="errorToast">No ha podido ser agregado</string>
 </resources>

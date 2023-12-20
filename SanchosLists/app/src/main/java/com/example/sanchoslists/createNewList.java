@@ -32,7 +32,7 @@ public class createNewList extends AppCompatActivity {
         SanchosSQLite dbHelper = new SanchosSQLite(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         int duration = Toast.LENGTH_SHORT;
-        CharSequence text = "";
+        int text ;
 
         // Obten el nombre de la lista desde el EditText
         String listName = textInput.getText().toString();
@@ -47,9 +47,9 @@ public class createNewList extends AppCompatActivity {
         hideSoftKeyboard(textInput);
 
         if (newRowId == -1){
-            text = "Elemento ya en lista";
+            text = R.string.errorToast;
         } else {
-            text = "Agregado con éxito";
+            text = R.string.correctToast;
         }
 
         Toast toast = Toast.makeText(this /* MyActivity */, text, duration);

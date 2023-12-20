@@ -4,4 +4,6 @@
     <string name="createButton">Criar</string>
     <string name="newList">Nova Objeto</string>
     <string name="nameList">nomes objeto</string>
+    <string name="correctToast">PT</string>
+    <string name="errorToast">NO PT</string>
 </resources>
