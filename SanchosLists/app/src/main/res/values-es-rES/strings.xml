@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Listas de Sancho</string>
+    <string name="createButton">Crear</string>
+    <string name="newList">Nueva lista</string>
+    <string name="nameList">Nombre de la lista</string>
+    <string name="feedback">positivoESP</string>
+</resources>
