@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -43,6 +44,8 @@ public class createNewList extends AppCompatActivity {
         // Inserta la nueva lista en la tabla "lists"
         long newRowId = db.insert(ListsContract.DictEntry.TABLE_NAME, null, values);
 
+        hideSoftKeyboard(textInput);
+
         if (newRowId == -1){
             text = "Elemento ya en lista";
         } else {
@@ -51,5 +54,11 @@ public class createNewList extends AppCompatActivity {
 
         Toast toast = Toast.makeText(this /* MyActivity */, text, duration);
         toast.show();
+    }
+
+    private void hideSoftKeyboard(View v) {
+        InputMethodManager inputMethodManager;
+        inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 }
