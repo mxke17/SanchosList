@@ -12,8 +12,6 @@ public class SanchosSQLite extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "sanchos_db";
     public static final int DATABASE_VERSION = 1;
 
-    String SQL_DELETE_ENTRIES =  "DROP TABLE IF EXISTS " + DATABASE_NAME;
-
     public SanchosSQLite(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -37,7 +35,8 @@ public class SanchosSQLite extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ListsContract.DictEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TasksContract.DictEntry.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 }
