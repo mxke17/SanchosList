@@ -36,12 +36,12 @@
         app:layout_constraintEnd_toEndOf="parent"
  />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/taskListRv"
-        android:layout_width="409dp"
-        android:layout_height="597dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="61dp"
-        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="122dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ import java.util.List;
 public class SanchosSQLite extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "sanchos_db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public SanchosSQLite(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -18,6 +18,7 @@ public class SanchosSQLite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        System.out.println("Desde db");
         // Crear tabla de listas
         String createListsTable = "CREATE TABLE " + ListsContract.DictEntry.TABLE_NAME +
                 "(" + ListsContract.DictEntry._ID + " INTEGER PRIMARY KEY, " +

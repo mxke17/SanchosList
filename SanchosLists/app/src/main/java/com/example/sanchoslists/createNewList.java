@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.sanchoslists.tablecontracts.ListsContract;
+
 public class createNewList extends AppCompatActivity {
 
     @Override
@@ -30,9 +32,9 @@ public class createNewList extends AppCompatActivity {
 
         // Crea un objeto ContentValues para insertar los valores en la base de datos
         ContentValues values = new ContentValues();
-        values.put(SanchosSQLite.COLUMN_LIST_NAME, listName);
+        values.put(ListsContract.DictEntry.COLUMN_NAME_NAME, listName);
 
         // Inserta la nueva lista en la tabla "lists"
-        long newRowId = db.insert(SanchosSQLite.TABLE_LISTS, null, values);
+        long newRowId = db.insert(ListsContract.DictEntry.TABLE_NAME, null, values);
     }
 }
