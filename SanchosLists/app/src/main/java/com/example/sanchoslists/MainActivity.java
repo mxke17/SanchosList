@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.sanchoslists.tablecontracts.ListsContract;
+
 public class MainActivity extends AppCompatActivity {
 
     // Atributos para manejar la BD
@@ -30,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
     private void initLists(){
         // Adicion de valores a la bd
         ContentValues values = new ContentValues();
-        values.put(SanchosSQLite.COLUMN_LIST_NAME, "Compras");
+        values.put(ListsContract.DictEntry.COLUMN_NAME_NAME, "Compras");
         db.insert(SanchosSQLite.DATABASE_NAME, null, values);
 
-        values.put(SanchosSQLite.COLUMN_LIST_NAME, "Compras2");
+        values.put(ListsContract.DictEntry.COLUMN_NAME_NAME, "Compras2");
         db.insert(SanchosSQLite.DATABASE_NAME, null, values);
     }
 
