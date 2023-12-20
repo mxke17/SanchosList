@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     // Atributos para manejar la BD
     private SanchosSQLite dbHelper;
+
+    private StringListAdapter adapter;
     private SQLiteDatabase db;
     private RecyclerView listLists;
-
-    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,18 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new SanchosSQLite(getApplicationContext());
         db = dbHelper.getWritableDatabase();
 
-        //listLists = (RecyclerView) findViewById(R.id.taskListRv);
-        textView = (TextView) findViewById(R.id.textView2);
         initLists();
 
-        Cursor cursor = db.query(ListsContract.DictEntry.TABLE_NAME, null, null, null, null, null, null);
         List<String> listNames = new ArrayList<>();
+        adapter = new StringListAdapter(listNames);
+
+        listLists = (RecyclerView) findViewById(R.id.listNamesList);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        listLists.setLayoutManager(layoutManager);
+        listLists.setAdapter(adapter);
+
+        Cursor cursor = db.query(ListsContract.DictEntry.TABLE_NAME, null, null, null, null, null, null);
 
         if(cursor.moveToFirst()) {
             int columnIndex = cursor.getColumnIndex(ListsContract.DictEntry.COLUMN_NAME_NAME);
@@ -51,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        //listNames tiene los nombres de todas las listas
+        //listNames tiene los nombres de todas las lista
+        adapter.notifyDataSetChanged();
     }
 
     private void initLists(){
