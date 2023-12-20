@@ -52,15 +52,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        listNames = new ArrayList<>();
-
         Cursor cursor = db.query(ListsContract.DictEntry.TABLE_NAME, null, null, null, null, null, null);
 
         if(cursor.moveToFirst()) {
             int columnIndex = cursor.getColumnIndex(ListsContract.DictEntry.COLUMN_NAME_NAME);
             if (columnIndex > 0) {
                 do {
-                    listNames.add(cursor.getString(columnIndex));
+                    String v = cursor.getString(columnIndex);
+                    if(!listNames.contains(v)) {
+                        listNames.add(v);
+                    }
                 } while (cursor.moveToNext());
             }
         }
