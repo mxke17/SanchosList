@@ -28,12 +28,6 @@ public class createNewList extends AppCompatActivity {
         // Obten el nombre de la lista desde el EditText
         String listName = ((EditText) findViewById(R.id.listNameEditText)).getText().toString();
 
-        // Verifica que el nombre de la lista no esté vacío
-        if (listName.trim().isEmpty()) {
-            // Puedes mostrar un mensaje indicando que el nombre no puede estar vacío
-            return;
-        }
-
         // Crea un objeto ContentValues para insertar los valores en la base de datos
         ContentValues values = new ContentValues();
         values.put(SanchosSQLite.COLUMN_LIST_NAME, listName);
