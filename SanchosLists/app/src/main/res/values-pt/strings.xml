@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Listas de Sancho</string>
     <string name="createButton">Criar</string>
-    <string name="newList">Nova Lista</string>
-    <string name="nameList">Lista de nomes</string>
+    <string name="newList">Nova Objeto</string>
+    <string name="nameList">nomes objeto</string>
     <string name="feedback">positivoPT</string>
 </resources>
