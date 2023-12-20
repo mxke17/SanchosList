@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         //initLists();
 
-        List<String> listNames = new ArrayList<>();
+        listNames = new ArrayList<>();
 
         adapter = new StringListAdapter(listNames);
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        
+
         Cursor cursor = db.query(ListsContract.DictEntry.TABLE_NAME, null, null, null, null, null, null);
 
         if(cursor.moveToFirst()) {
