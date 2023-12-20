@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sanchoslists.tablecontracts.ListsContract;
 
@@ -29,6 +30,8 @@ public class createNewList extends AppCompatActivity {
     public void createList(View view){
         SanchosSQLite dbHelper = new SanchosSQLite(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
+        int duration = Toast.LENGTH_SHORT;
+        CharSequence text = "";
 
         // Obten el nombre de la lista desde el EditText
         String listName = textInput.getText().toString();
@@ -39,5 +42,14 @@ public class createNewList extends AppCompatActivity {
 
         // Inserta la nueva lista en la tabla "lists"
         long newRowId = db.insert(ListsContract.DictEntry.TABLE_NAME, null, values);
+
+        if (newRowId == -1){
+            text = "Elemento ya en lista";
+        } else {
+            text = "Agregado con éxito";
+        }
+
+        Toast toast = Toast.makeText(this /* MyActivity */, text, duration);
+        toast.show();
     }
 }
