@@ -10,7 +10,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.sanchoslists.tablecontracts.ListsContract;
 
@@ -35,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new SanchosSQLite(getApplicationContext());
         db = dbHelper.getWritableDatabase();
 
-        initLists();
+        //initLists();
 
         List<String> listNames = new ArrayList<>();
+
         adapter = new StringListAdapter(listNames);
 
         listLists = (RecyclerView) findViewById(R.id.listNamesList);

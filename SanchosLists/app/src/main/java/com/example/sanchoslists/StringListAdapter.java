@@ -20,7 +20,7 @@ public class StringListAdapter extends RecyclerView.Adapter<StringListAdapter.St
     @NonNull
     @Override
     public StringViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main, parent, false);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_name_item, parent, false);
 
         return new StringViewHolder(layoutView);
     }
@@ -41,7 +41,7 @@ public class StringListAdapter extends RecyclerView.Adapter<StringListAdapter.St
         public StringViewHolder(View view) {
             super(view);
 
-            tagText = view.findViewById(R.id.listNamesList);
+            tagText = view.findViewById(R.id.textViewListView);
         }
     }
 }
