@@ -3,7 +3,7 @@
     <string name="app_name">Listas de Sancho</string>
     <string name="createButton">Criar</string>
     <string name="newList">Nova Objeto</string>
-    <string name="nameList">nomes objeto</string>
-    <string name="correctToast">PT</string>
-    <string name="errorToast">NO PT</string>
+    <string name="nameList">Nomes objeto</string>
+    <string name="correctToast">Adicionado com sucesso</string>
+    <string name="errorToast">Falha ao adicionar</string>
 </resources>

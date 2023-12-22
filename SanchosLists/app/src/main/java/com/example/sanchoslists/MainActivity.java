@@ -28,14 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("Desde main");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         dbHelper = new SanchosSQLite(getApplicationContext());
         db = dbHelper.getWritableDatabase();
-
-        //initLists();
 
         listNames = new ArrayList<>();
 

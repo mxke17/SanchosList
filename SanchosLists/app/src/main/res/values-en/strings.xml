@@ -5,5 +5,5 @@
     <string name="newList">New item</string>
     <string name="nameList">Name item</string>
     <string name="correctToast">Succesfully added</string>
-    <string name="errorToast">Failed to addd</string>
+    <string name="errorToast">Failed to add</string>
 </resources>
